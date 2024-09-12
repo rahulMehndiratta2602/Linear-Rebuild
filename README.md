@@ -1,6 +1,6 @@
 # Rebuilding Linear.app's homepage with Next.js and Tailwind
 
-**NOTE:** I am NOT affiliated with [Linear.app](https://linear.app/), but just really like their website, and think rebuilding this with Tailwind can teach a lot to people. All of the images in `/public/img` are owned by Linear, they are only used as teaching material here.
+**NOTE:** I am NOT affiliated with [Linear.app](https://linear.app/), but just really like their website, and think rebuilding this with Tailwind for learning purposes. All of the images in `/public/img` are owned by Linear, they are only used as teaching material here.
 
 ## Running this project
 
