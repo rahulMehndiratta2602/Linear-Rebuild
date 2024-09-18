@@ -9,22 +9,24 @@ import { Logo } from './icons/logo';
 import classNames from 'classnames';
 
 export const Header = () => {
-    const [hamburgerMenuIsOpen, setHambugerMenuIsOpen] = useState(false);
+    const [hamburgerMenuIsOpen, setHamburgerMenuIsOpen] = useState(false);
     useEffect(() => {
         if (hamburgerMenuIsOpen) {
             document.querySelector('html')?.classList.add('overflow-hidden');
         }
-    },[hamburgerMenuIsOpen])
+    }, [hamburgerMenuIsOpen]);
     useEffect(() => {
-        const closeHamburger = () => { setHambugerMenuIsOpen(false); }
-        window.addEventListener(('resize'), closeHamburger)
+        const closeHamburger = () => {
+            setHamburgerMenuIsOpen(false);
+        };
+        window.addEventListener('resize', closeHamburger);
         // NEW THING LEARNED
-        window.addEventListener(('orientationchange'), closeHamburger)
+        window.addEventListener('orientationchange', closeHamburger);
         return () => {
-            window.removeEventListener('resize',closeHamburger)
-            window.removeEventListener('orientationchange',closeHamburger)
-        }
-    },[setHambugerMenuIsOpen])
+            window.removeEventListener('resize', closeHamburger);
+            window.removeEventListener('orientationchange', closeHamburger);
+        };
+    }, [setHamburgerMenuIsOpen]);
     return (
         <header className="fixed top-0 left-0 w-full border-b border-transparent-white backdrop-blur-[12px]">
             <Container className="flex h-navigation-height">
@@ -48,8 +50,8 @@ export const Header = () => {
                     >
                         <ul
                             className={classNames(
-                                
-                                'flex h-full flex-col md:flex-row md:items-center [&_li]:ml-6 [&_li]:border-b [&_li]:border-grey-dark md:[&_li]:border-none','overflow-hidden',
+                                'flex h-full flex-col md:flex-row md:items-center [&_li]:ml-6 [&_li]:border-b [&_li]:border-grey-dark md:[&_li]:border-none',
+                                'overflow-hidden',
                                 'ease-in [&_a]:flex [&_a]:h-navigation-height [&_a]:w-full [&_a]:translate-y-8 [&_a]:items-center [&_a]:text-md [&_a]:transition-[color,transform] [&_a]:duration-300 md:[&_a]:translate-y-0 md:[&_a]:text-sm [&_a:hover]:text-grey',
                                 hamburgerMenuIsOpen && '[&_a]:translate-y-0'
                             )}
@@ -88,7 +90,7 @@ export const Header = () => {
 
                 <button
                     className="ml-6 md:hidden"
-                    onClick={() => setHambugerMenuIsOpen((open) => !open)}
+                    onClick={() => setHamburgerMenuIsOpen((open) => !open)}
                 >
                     <span className="sr-only">Toggle menu</span>
                     <HamburgerIcon />
