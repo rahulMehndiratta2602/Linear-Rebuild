@@ -5,7 +5,7 @@ import classNames from 'classnames';
 interface ButtonProps extends VariantProps<typeof buttonClasses> {
     children: React.ReactNode;
     href: string;
-    className: string;
+    className?: string;
 }
 
 const buttonClasses = cva('rounded-full inline-flex items-center', {
